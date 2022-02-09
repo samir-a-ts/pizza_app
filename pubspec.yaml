@@ -17,13 +17,23 @@ dependencies:
   flutter:
     sdk: flutter
   
+  # Injections
+  get_it: ^7.2.0
+  injectable: ^1.5.3
+
   # UI
   provider: ^6.0.2
 
-
+  # Translations
+  intl: ^0.17.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # Injection generation
+  injectable_generator: ^1.5.3
+  # Generating code
+  build_runner: ^2.1.7
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -38,7 +48,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
@@ -53,3 +62,5 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+flutter_intl:
+  enabled: true
