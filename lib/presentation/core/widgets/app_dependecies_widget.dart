@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/application/core/constants.dart';
-import 'package:provider/provider.dart';
 
 // TODO: Initialise all dependecies
 class AppDependeciesWidget extends StatelessWidget {
@@ -10,18 +8,6 @@ class AppDependeciesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<MultiTextThemeNotifier>(
-          create: (context) => MultiTextThemeNotifier(
-            themesMap: {
-              "playfair": playfairTextTheme,
-              "sanfracisco": sanFraciscoTextTheme,
-            },
-          ),
-        ),
-      ],
-      child: child,
-    );
+    return child;
   }
 }

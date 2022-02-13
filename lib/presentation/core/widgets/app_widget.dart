@@ -15,7 +15,7 @@ class _AppWidgetState extends State<AppWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Pizza App",
-      initialRoute: '/',
+      initialRoute: '/launch',
       routes: routes,
       darkTheme: darkTheme,
       theme: lightTheme,
