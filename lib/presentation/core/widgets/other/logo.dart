@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Logo extends StatelessWidget {
-  const Logo({Key? key}) : super(key: key);
+  final double? width;
+
+  final double? height;
+
+  const Logo({Key? key, this.width, this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       "assets/images/logo.svg",
-      width: 100,
+      width: width,
+      height: height,
     );
   }
 }
