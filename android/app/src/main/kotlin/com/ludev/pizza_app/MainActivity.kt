@@ -1,4 +1,4 @@
-package com.example.pizza_app
+package com.ludev.pizza_app
 
 import io.flutter.embedding.android.FlutterActivity
 
