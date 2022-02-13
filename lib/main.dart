@@ -1,14 +1,17 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:pizza_app/application/core/injections/injection.dart';
 import 'package:pizza_app/presentation/core/widgets/app/app_dependecies_widget.dart';
 import 'package:pizza_app/presentation/core/widgets/app/app_widget.dart';
 import 'package:pizza_app/presentation/core/widgets/theme/theme_widget.dart';
 
-import 'application/core/injections/injection.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
 
   configureDependencies();
 
@@ -25,8 +28,13 @@ Future<void> main() async {
         ),
       );
     },
-    (err, stack) {
-      /// TODO: Configure error handling
+    (err, stack) async {
+      await FirebaseCrashlytics.instance.recordFlutterError(
+        FlutterErrorDetails(
+          exception: err,
+          stack: stack,
+        ),
+      );
     },
   );
 }

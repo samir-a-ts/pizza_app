@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "364779918451",
+    "project_id": "pizza-statistics",
+    "storage_bucket": "pizza-statistics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364779918451:android:180fe512bdf8fcb7a5c606",
+        "android_client_info": {
+          "package_name": "com.ludev.pizza_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364779918451-gevi8ql1feslvkrf7c9fklovg10urmd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARx2VtI8hAzZ2YNoaNZLTSiICVGrhye98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364779918451-gevi8ql1feslvkrf7c9fklovg10urmd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
