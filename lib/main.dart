@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:pizza_app/presentation/core/widgets/app_dependecies_widget.dart';
-import 'package:pizza_app/presentation/core/widgets/app_widget.dart';
-import 'package:pizza_app/presentation/core/widgets/theme_widget.dart';
+import 'package:pizza_app/presentation/core/widgets/app/app_dependecies_widget.dart';
+import 'package:pizza_app/presentation/core/widgets/app/app_widget.dart';
+import 'package:pizza_app/presentation/core/widgets/theme/theme_widget.dart';
 
 import 'application/core/injections/injection.dart';
 
