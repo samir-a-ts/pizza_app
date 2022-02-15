@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class _None extends LeafRenderObjectWidget {
-  const _None({Key? key}) : super(key: key);
+class None extends LeafRenderObjectWidget {
+  const None({Key? key}) : super(key: key);
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -39,5 +39,3 @@ class _RenderNone extends RenderBox {
   @override
   double computeMaxIntrinsicHeight(double width) => 0;
 }
-
-const none = _None(key: Key("none"));

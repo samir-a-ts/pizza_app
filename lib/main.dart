@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pizza_app/application/core/injections/injection.dart';
 import 'package:pizza_app/presentation/core/widgets/app/app_dependecies_widget.dart';
 import 'package:pizza_app/presentation/core/widgets/app/app_widget.dart';
@@ -18,13 +19,16 @@ Future<void> main() async {
   runZonedGuarded(
     () {
       runApp(
-        const AppDependeciesWidget(
-          child: ThemeWidget(
-            key: Key("theme_widget"),
-            child: AppWidget(
-              key: Key("app_key"),
+        ScreenUtilInit(
+          builder: () => const AppDependeciesWidget(
+            child: ThemeWidget(
+              key: Key("theme_widget"),
+              child: AppWidget(
+                key: Key("app_key"),
+              ),
             ),
           ),
+          designSize: const Size(375, 812),
         ),
       );
     },

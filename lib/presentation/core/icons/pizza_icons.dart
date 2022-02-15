@@ -40,4 +40,5 @@ class PizzaIcons {
   static const IconData cart = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData like = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData location = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData menu = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
