@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza_app/application/core/constants.dart';
+import 'package:pizza_app/generated/l10n.dart';
 
 // TODO: initialise all needed parameters for `MaterialApp`.
 
@@ -19,6 +21,11 @@ class _AppWidgetState extends State<AppWidget> {
       routes: routes,
       darkTheme: darkTheme,
       theme: lightTheme,
+      localizationsDelegates: const [
+        DefaultCupertinoLocalizations.delegate,
+        DefaultMaterialLocalizations.delegate,
+        S.delegate,
+      ],
     );
   }
 }

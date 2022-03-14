@@ -35,9 +35,6 @@ const blackColor = Color(0xFF000000);
 /// Basement of both themes.
 final _theme = ThemeData(
   primaryColor: _primaryColor,
-  iconTheme: const IconThemeData(
-    color: _primaryColor,
-  ),
 );
 
 /// Data for light theme.

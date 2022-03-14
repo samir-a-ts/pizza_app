@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+/// App logo widget.
+///
+/// If there are some *size* provided,
+/// they would auto-scale via [ScreenUtil].
 class Logo extends StatelessWidget {
   final double? width;
 

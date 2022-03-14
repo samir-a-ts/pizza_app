@@ -3,6 +3,9 @@ import 'package:pizza_app/application/core/constants.dart';
 import 'package:pizza_app/application/core/notifiers/theme/multi_text_theme_notifier.dart';
 import 'package:provider/provider.dart';
 
+/// Set ups [MultiTextThemeNotifier] in lower widget tree.
+/// Listens to [didChangePlatformBrightness], and changing
+/// text theme color based on [brightness].
 class ThemeWidget extends StatefulWidget {
   final Widget child;
 
@@ -12,7 +15,12 @@ class ThemeWidget extends StatefulWidget {
   _ThemeWidgetState createState() => _ThemeWidgetState();
 }
 
+/// [WidgetsBindingObserver] allows us
+/// to listen to the platform and engine changes.
 class _ThemeWidgetState extends State<ThemeWidget> with WidgetsBindingObserver {
+  /// Instance if [MultiTextThemeNotifier].
+  /// Holds logic of managing text themes and
+  /// notifies changes throughout the app.
   late MultiTextThemeNotifier _textThemeNotifier;
 
   @override
@@ -26,12 +34,17 @@ class _ThemeWidgetState extends State<ThemeWidget> with WidgetsBindingObserver {
   void initState() {
     final brightness = WidgetsBinding.instance!.window.platformBrightness;
 
+    /// Instance initialization.
     _textThemeNotifier = MultiTextThemeNotifier(
       themesMap: {
         "playfair": playfairTextTheme,
         "sanfracisco": sanFraciscoTextTheme,
       },
-    )..apply(
+    )
+
+      /// Set up theme colors based on
+      /// current app brightness.
+      ..apply(
         textColor: brightness == Brightness.light ? blackColor : whiteColor,
       );
 
@@ -40,6 +53,8 @@ class _ThemeWidgetState extends State<ThemeWidget> with WidgetsBindingObserver {
     super.initState();
   }
 
+  /// Changes theme parameters based on
+  /// [platformBrightness];
   void _brightnessUpdated() {
     final brightness = WidgetsBinding.instance!.window.platformBrightness;
 
@@ -52,7 +67,7 @@ class _ThemeWidgetState extends State<ThemeWidget> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
+        ChangeNotifierProvider<MultiTextThemeNotifier>(
           create: (context) => _textThemeNotifier,
         ),
       ],

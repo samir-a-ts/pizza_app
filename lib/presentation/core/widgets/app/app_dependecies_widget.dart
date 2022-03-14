@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 // TODO: Initialise all dependecies
+
+/// Provides all dependecies
+/// (repositories, state managers, etc)
+/// in lower element tree.
 class AppDependeciesWidget extends StatelessWidget {
   final Widget child;
 

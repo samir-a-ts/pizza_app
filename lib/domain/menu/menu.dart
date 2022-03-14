@@ -18,7 +18,7 @@ class Menu extends Equatable {
         combos,
       ];
 
-  factory Menu.fromJson(Map<String, List<Map<String, dynamic>>> json) {
+  factory Menu.fromJson(Map<String, dynamic> json) {
     final pizzas = <Pizza>[];
 
     final combos = <Combo>[];

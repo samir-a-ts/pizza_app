@@ -14,11 +14,11 @@ class Pizza extends MenuItem {
           description: description,
         );
 
-  final Map<String, int> priceDictionary;
+  final Map<String, dynamic> priceDictionary;
 
   factory Pizza.fromJson(Map<String, dynamic> json) {
     return Pizza(
-      priceDictionary: json["priceDictionary"],
+      priceDictionary: Map.from(json["priceDictionary"]),
       id: json["objectId"],
       positionName: json["name"],
       imageUrl: json["imageUrl"],

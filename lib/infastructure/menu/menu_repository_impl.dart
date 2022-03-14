@@ -14,8 +14,7 @@ class MenuRepositoryImpl extends MenuRepository {
   @override
   Future<Either<Failure, Menu>> loadMenu() async {
     try {
-      final request =
-          await _dio.get<Map<String, List<Map<String, dynamic>>>>("/menu");
+      final request = await _dio.get<Map<String, dynamic>>("/menu");
 
       final menu = Menu.fromJson(request.data!);
 

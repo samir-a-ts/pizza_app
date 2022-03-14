@@ -21,7 +21,7 @@ class Combo extends MenuItem {
 
   factory Combo.fromJson(Map<String, dynamic> json) {
     return Combo(
-      inclusions: json["inclusions"],
+      inclusions: (json["inclusions"] as List<dynamic>).cast<String>(),
       price: json["price"],
       id: json["objectId"],
       positionName: json["name"],

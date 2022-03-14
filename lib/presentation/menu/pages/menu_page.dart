@@ -1,44 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/presentation/core/icons/pizza_icons.dart';
-import 'package:pizza_app/presentation/core/widgets/other/logo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pizza_app/application/core/constants.dart';
+import 'package:pizza_app/application/core/injections/injection.dart';
+import 'package:pizza_app/application/menu/cubit/menu_cubit.dart';
+import 'package:pizza_app/presentation/core/widgets/other/app_bar.dart';
+import 'package:pizza_app/presentation/core/widgets/other/none.dart';
+import 'package:pizza_app/presentation/menu/widgets/menu_loading_placeholder.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size(double.infinity, 128),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-            ),
-            child: SizedBox(
-              height: 40,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  Icon(
-                    PizzaIcons.menu,
-                    size: 24,
-                  ),
-                  Hero(
-                    tag: "logo_hero",
-                    child: Logo(),
-                  ),
-                  Icon(
-                    PizzaIcons.search,
-                    size: 24,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+    return BlocProvider<MenuCubit>(
+      create: (context) => getIt<MenuCubit>(),
+      child: Scaffold(
+        appBar: PizzaBar(),
+        drawer: const Drawer(),
+        body: const MenuBody(),
       ),
+    );
+  }
+}
+
+class MenuBody extends StatefulWidget {
+  const MenuBody({Key? key}) : super(key: key);
+
+  @override
+  State<MenuBody> createState() => _MenuBodyState();
+}
+
+class _MenuBodyState extends State<MenuBody> {
+  @override
+  void initState() {
+    context.read<MenuCubit>().loadMenu();
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<MenuCubit, MenuState>(
+      listener: (context, state) {
+        log.d(state);
+      },
+      builder: (context, state) {
+        return const MenuLoadingPlaceholder();
+      },
     );
   }
 }

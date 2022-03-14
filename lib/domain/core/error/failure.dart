@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
 
-class Failure {
+class Failure extends Equatable {
   final FailureCode code;
 
   factory Failure.fromError(DioError error) {
@@ -25,6 +26,9 @@ class Failure {
   }
 
   const Failure(this.code);
+
+  @override
+  List<Object?> get props => [code];
 }
 
 enum FailureCode {

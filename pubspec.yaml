@@ -31,8 +31,14 @@ dependencies:
   get_it: ^7.2.0
   injectable: ^1.5.3
 
+  # Local data storage
+  sqflite: ^2.0.2
+  flutter_secure_storage: ^5.0.2
+
   # State management
   provider: ^6.0.2
+  bloc: ^8.0.2
+  flutter_bloc: ^8.0.1
 
   # UI
   google_fonts: ^2.3.1
@@ -44,7 +50,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  # Logging
+  logger: ^1.1.0
   # Injection generation
   injectable_generator: ^1.5.3
   # Generating code

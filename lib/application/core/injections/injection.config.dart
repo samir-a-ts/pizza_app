@@ -10,7 +10,8 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../../../domain/menu/menu_repository.dart' as _i4;
 import '../../../infastructure/menu/menu_repository_impl.dart' as _i5;
-import '../app_module.dart' as _i6; // ignore_for_file: unnecessary_lambdas
+import '../../menu/cubit/menu_cubit.dart' as _i6;
+import '../app_module.dart' as _i7; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -20,7 +21,8 @@ _i1.GetIt $initDependecies(_i1.GetIt get,
   final appModule = _$AppModule();
   gh.factory<_i3.Dio>(() => appModule.dio);
   gh.factory<_i4.MenuRepository>(() => _i5.MenuRepositoryImpl(get<_i3.Dio>()));
+  gh.singleton<_i6.MenuCubit>(_i6.MenuCubit(get<_i4.MenuRepository>()));
   return get;
 }
 
-class _$AppModule extends _i6.AppModule {}
+class _$AppModule extends _i7.AppModule {}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Class that holds all text themes
 /// in map. Allows to hold several text themes
-/// and propogate it throughout the app.
+/// and propogate it throughout the lower tree.
 class MultiTextThemeNotifier extends ChangeNotifier {
   late Map<String, TextTheme> _themesMap;
 
@@ -12,19 +12,22 @@ class MultiTextThemeNotifier extends ChangeNotifier {
     _themesMap = themesMap;
   }
 
-  TextTheme operator [](String data) {
-    if (_themesMap.containsKey(data)) return _themesMap[data]!;
+  /// Gets [TextTheme] from themes container
+  /// based on key theme was written.
+  ///
+  /// If there are no such a key in theme
+  /// map, first theme would be returned.
+  TextTheme operator [](String key) {
+    if (_themesMap.containsKey(key)) return _themesMap[key]!;
 
     return _themesMap[_themesMap.keys.first]!;
   }
 
+  /// Applies provided color
+  /// to all [TextTheme]s in map.
   void apply({
     Color? textColor,
   }) {
-    if (_themesMap[_themesMap.keys.first]!.bodyText1!.color == textColor) {
-      return;
-    }
-
     final appliedThemesMap = <String, TextTheme>{};
 
     final keys = _themesMap.keys.toList();
@@ -44,6 +47,8 @@ class MultiTextThemeNotifier extends ChangeNotifier {
   }
 }
 
+/// Adds getter for particular themes
+/// in [MultiTextThemeNotifier].
 extension MultiTextThemeNotifierExt on MultiTextThemeNotifier {
   TextTheme get playFair => this["playfair"];
 
