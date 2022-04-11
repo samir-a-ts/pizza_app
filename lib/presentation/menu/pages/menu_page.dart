@@ -4,7 +4,6 @@ import 'package:pizza_app/application/core/constants.dart';
 import 'package:pizza_app/application/core/injections/injection.dart';
 import 'package:pizza_app/application/menu/cubit/menu_cubit.dart';
 import 'package:pizza_app/presentation/core/widgets/other/app_bar.dart';
-import 'package:pizza_app/presentation/core/widgets/other/none.dart';
 import 'package:pizza_app/presentation/menu/widgets/menu_loading_placeholder.dart';
 
 class MenuPage extends StatelessWidget {

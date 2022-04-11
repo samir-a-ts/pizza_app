@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const _animationDuration = Duration(seconds: 4);
+
+const _delayDuration = Duration(seconds: 1);
+
 class LoadingAnimationBuilder extends StatefulWidget {
   final Widget? child;
 
@@ -21,10 +25,19 @@ class _LoadingAnimationBuilderState extends State<LoadingAnimationBuilder>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this)
-      ..repeat(
-        period: const Duration(seconds: 3),
-      );
+    _controller = AnimationController(
+      duration: _animationDuration,
+      vsync: this,
+    );
+
+    _controller.addListener(() async {
+      if (_controller.isCompleted) {
+        await Future.delayed(_delayDuration);
+        _controller.forward(from: 0.0);
+      }
+    });
+
+    _controller.forward(from: 0.0);
   }
 
   @override
@@ -43,14 +56,24 @@ class _LoadingAnimationBuilderState extends State<LoadingAnimationBuilder>
         child,
         LinearGradient(
           colors: [
-            Colors.grey,
+            Colors.grey[500]!,
+            Colors.grey[500]!,
             Colors.grey[350]!,
-            Colors.grey,
+            Colors.grey[350]!,
+            Colors.grey[500]!,
+            Colors.grey[500]!,
           ],
-          begin: const Alignment(-1, 0),
-          end: const Alignment(1, 0),
+          begin: const Alignment(-1.4, 0),
+          end: const Alignment(1.4, 0),
           tileMode: TileMode.mirror,
-          stops: [0, _controller.value, 1],
+          stops: [
+            0,
+            _controller.value - 0.17,
+            _controller.value - 0.05,
+            _controller.value + 0.05,
+            _controller.value + 0.17,
+            1
+          ],
         ),
       ),
     );

@@ -9,7 +9,7 @@ class MenuLoadingPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         Padding(
           padding: EdgeInsets.only(
@@ -29,7 +29,6 @@ class MenuLoadingPlaceholder extends StatelessWidget {
           child: LoadingAnimationBuilder(
             builder: (context, child, gradient) => _LoadingContainer(
               gradient: gradient,
-              width: 100,
               height: 100,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(

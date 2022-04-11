@@ -48,3 +48,6 @@ final darkTheme = _theme.copyWith(
   backgroundColor: const Color(0xFF231E36),
   scaffoldBackgroundColor: const Color(0xFF231E36),
 );
+
+const loadingGray = Color(0x00a3a3a3);
+const loadingGrayAccent = Color(0x008c8c8c);
